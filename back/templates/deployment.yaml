@@ -1,21 +1,24 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: {{ .Release.Name }}
+  name: {{ .Release.Name }}-backend
   labels:
-    app: {{ .Release.Name }}
+    app: backend
 spec:
-  replicas: 1
+  replicas: {{ .Values.replicas }}
   selector:
     matchLabels:
-      app: {{ .Release.Name }}
+      app: backend
   template:
     metadata:
       labels:
-        app: {{ .Release.Name }}
+        app: backend
     spec:
       containers:
-      - name: httpd
-        image: httpd:latest
-        ports:
-        - containerPort: 80
+        - name: backend
+          image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
+          ports:
+            - containerPort: {{ .Values.containerPort }}
+          command: ["python"]
+          args: ["-m", "http.server", "{{ .Values.containerPort }}"]
+

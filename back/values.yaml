@@ -1,4 +1,8 @@
-replicas: 1
+replicas: 3
 image:
-  repository: httpd
-  tag: latest
+  repository: python
+  tag: 3.9-slim
+service:
+  type: ClusterIP
+  port: 5000
+containerPort: 5000
