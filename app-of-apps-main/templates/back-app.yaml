@@ -8,10 +8,10 @@ spec:
   source:
     repoURL: https://github.com/mustafadincerr/a-o-apps.git
     targetRevision: HEAD
-    path: backend
+    path: back
   destination:
     server: https://kubernetes.default.svc
-    namespace: backend
+    namespace: back
   syncPolicy:
     automated:
       prune: true

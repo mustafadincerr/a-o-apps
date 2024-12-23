@@ -1,17 +1,17 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: frontend-app
+  name: front
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/mustafadincerr/a-o-apps.git
     targetRevision: HEAD
-    path: frontend
+    path: front
   destination:
     server: https://kubernetes.default.svc
-    namespace: frontend
+    namespace: front
   syncPolicy:
     automated:
       prune: true
