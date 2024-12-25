@@ -8,7 +8,7 @@ spec:
   source:
     repoURL: https://github.com/mustafadincerr/a-o-apps.git
     targetRevision: HEAD
-    chart: front/
+    chart: front
   destination:
     server: https://kubernetes.default.svc
     namespace: front
