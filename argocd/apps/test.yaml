@@ -1,18 +1,18 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: app-of-apps-main 
+  name: ftest
   namespace: argocd
 spec:
   project: default
   source:
     repoURL: https://github.com/mustafadincerr/a-o-apps.git
+    path: front
     targetRevision: HEAD
-    path: app-of-apps-main
   destination:
     server: https://kubernetes.default.svc
-    namespace: argocd
+    namespace: front
   syncPolicy:
     automated:
-      prune: false
+      prune: true
       selfHeal: true
