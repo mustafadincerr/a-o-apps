@@ -1,0 +1,36 @@
+---
+# Source: front/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: release-name-front
+spec:
+  type: ClusterIP
+  ports:
+    - port: 80
+      targetPort: 80
+  selector:
+    app: front
+---
+# Source: front/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: release-name-front
+  labels:
+    app: front
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: front
+  template:
+    metadata:
+      labels:
+        app: front
+    spec:
+      containers:
+        - name: front
+          image: nginx:latest
+          ports:
+            - containerPort: 80

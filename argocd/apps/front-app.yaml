@@ -6,9 +6,9 @@ metadata:
 spec:
   project: default
   source:
-  repoURL: https://github.com/mustafadincerr/a-o-apps.git
-  path: front
-  targetRevision: HEAD
+    repoURL: https://github.com/mustafadincerr/a-o-apps.git
+    path: front
+    targetRevision: HEAD
   destination:
     server: https://kubernetes.default.svc
     namespace: front
