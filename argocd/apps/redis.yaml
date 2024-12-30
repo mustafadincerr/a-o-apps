@@ -7,7 +7,7 @@ spec:
   project: default
   source:
     repoURL: https://charts.bitnami.com/bitnami
-    chart: bitnami/redis
+    chart: redis
     targetRevision: 20.6.1
     helm:
       values: |
